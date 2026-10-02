@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#dff6ff">
+  <meta name="description" content="SkyDash is a colorful fantasy endless runner. Leap through a magical world and collect treasures.">
+  <title>SkyDash</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="SkyDash home">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <span class="brand-copy"><strong>SkyDash</strong><small>RUN BEYOND LIMITS</small></span>
+      </a>
+      <div class="top-actions">
+        <button class="icon-button sound-button" id="sound-button" type="button" aria-label="Turn sound off" aria-pressed="true" title="Sound on">
+          <svg class="sound-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+          <svg class="sound-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5ZM17 9l5 6m0-6-5 6"/></svg>
+        </button>
+        <button class="icon-button pause-button" id="pause-button" type="button" aria-label="Pause game" title="Pause (P)" disabled>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5h3v14H8zM15 5h3v14h-3z"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <section class="scoreboard" aria-label="Game scores">
+      <div class="score-item score-primary"><span class="score-icon" aria-hidden="true">✦</span><span class="score-label">SCORE</span><strong id="score-value">00000</strong></div>
+      <div class="score-item"><span class="score-icon coin-icon" aria-hidden="true">●</span><span class="score-label">COINS</span><strong id="coin-value">0</strong></div>
+      <div class="score-item"><span class="score-icon best-icon" aria-hidden="true">♛</span><span class="score-label">BEST</span><strong id="best-value">00000</strong></div>
+    </section>
+
+    <section class="game-frame" aria-label="SkyDash game">
+      <div class="game-stage" id="game-stage">
+        <canvas id="game-canvas" aria-label="Endless runner game. Tap or press Space to jump over obstacles and collect coins." role="img"></canvas>
+        <div class="stage-wash" aria-hidden="true"></div>
+        <div class="stage-topline" aria-hidden="true"><span><i></i> THE WILDERNESS WAY</span><span id="distance-label">READY, SET, GO!</span></div>
+
+        <div class="game-overlay" id="game-overlay">
+          <section class="overlay-panel start-panel" id="start-panel" aria-labelledby="start-title">
+            <div class="panel-sparkle" aria-hidden="true">✦</div>
+            <p class="eyebrow">YOUR ADVENTURE STARTS HERE</p>
+            <h1 id="start-title">Ready to <span>dash?</span></h1>
+            <p class="panel-copy">Leap across the wilds, chase bright coins, and see how far your quest takes you.</p>
+            <button class="primary-button" id="start-button" type="button"><span>Start running</span><b aria-hidden="true">→</b></button>
+            <p class="control-hint"><kbd>SPACE</kbd> or <kbd>↑</kbd> to jump <span>·</span> <kbd>P</kbd> to pause</p>
+          </section>
+
+          <section class="overlay-panel pause-panel" id="pause-panel" aria-labelledby="pause-title" hidden>
+            <div class="panel-sparkle pause-sparkle" aria-hidden="true">Ⅱ</div>
+            <p class="eyebrow">TAKE YOUR TIME</p>
+            <h2 id="pause-title">Pit stop!</h2>
+            <p class="panel-copy">Your run is paused. Catch your breath, then go again.</p>
+            <button class="primary-button" id="resume-button" type="button"><span>Keep running</span><b aria-hidden="true">→</b></button>
+            <button class="text-button" id="pause-restart-button" type="button">Start a fresh run</button>
+          </section>
+
+          <section class="overlay-panel gameover-panel" id="gameover-panel" aria-labelledby="gameover-title" hidden>
+            <div class="panel-sparkle gameover-sparkle" aria-hidden="true">★</div>
+            <p class="eyebrow">WHAT A RUN!</p>
+            <h2 id="gameover-title">Nice try, <span>speedy.</span></h2>
+            <div class="run-results"><div><span>YOUR SCORE</span><strong id="final-score">0</strong></div><div><span>COINS FOUND</span><strong id="final-coins">0</strong></div></div>
+            <p class="new-record" id="new-record" hidden>✦ A brand-new personal best! ✦</p>
+            <button class="primary-button" id="play-again-button" type="button"><span>Run it back</span><b aria-hidden="true">↻</b></button>
+          </section>
+        </div>
+      </div>
+      <div class="frame-footer"><span><i class="status-dot"></i> <span id="status-label">Your next adventure is waiting</span></span><span class="made-with">A WORLD OF WONDER <b aria-hidden="true">✿</b></span></div>
+    </section>
+
+    <footer class="below-game">
+      <div class="tip"><span class="tip-icon" aria-hidden="true">↟</span><p><strong>One button. Big jumps.</strong><span>Time your leap, then land running.</span></p></div>
+      <div class="tip"><span class="tip-icon coin-tip" aria-hidden="true">●</span><p><strong>Coins mean bonus points.</strong><span>Keep an eye out along the trail.</span></p></div>
+      <button class="jump-button" id="jump-button" type="button" aria-label="Jump"><span class="jump-arrow" aria-hidden="true">↑</span><span>JUMP</span></button>
+    </footer>
+    <p class="keyboard-note">JUMP <kbd>SPACE</kbd> <kbd>↑</kbd><span class="note-divider">/</span> PAUSE <kbd>P</kbd> <kbd>ESC</kbd></p>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
